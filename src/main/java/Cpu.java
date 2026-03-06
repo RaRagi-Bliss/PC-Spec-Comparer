@@ -17,6 +17,6 @@ public record Cpu(String cpuModel, Integer generation, Integer cores, Integer th
      * @return returns the total score from the CPU in a float.
      */
     public float totalScore(){
-        return 0; //todo formulate the calculation
+        return 0; //todo formulate the calculation and return
     }
 }
