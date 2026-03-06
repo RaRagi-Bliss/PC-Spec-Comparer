@@ -2,7 +2,7 @@
 A rough PC specification comparison tool.
 
 This small project will be used to help compare the specifications of x86 based Personal Computers,
-starting off with storing and comparing individual components.
+starting off with storing and comparing individual components. For now, all components entered require manual input.
 
 ---
 ## Roadmap:
