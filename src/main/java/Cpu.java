@@ -12,14 +12,16 @@
  */
 
 public record Cpu(String cpuModel, int generation, int cores, int threads, int boostClockSpeed, int fabProcess) {
-    /**
-     * The formula used to calculate the CPU performance score will be processed in this record and returned
-     *
-     * @return returns the total score from the CPU in a float.
-     */
+
     public Cpu{
         //Assertions.assertTrue(threads >= cores,"Cannot have more cores than threads");
     }
+
+    /**
+     * totalScore() takes in the calculations from the helper methods and combines them to create a final performance
+     * score for the CPU.
+     * @return the final CPU score
+     */
     public float totalScore(){
         //todo fine tune the combination of hyperThreadBonus and ageNegator
         return hyperThreadBonus() * ageNegator();
@@ -29,8 +31,8 @@ public record Cpu(String cpuModel, int generation, int cores, int threads, int b
     /**
      * hyperThreadBonus() calculates how many of the CPU's cores are single threaded
      * and how many are multithreaded (if any). Once calculated,
-     * @return uses a ternary operator to either return the number of cores there are in the CPU (if it is single threaded)
-     *  or returns the performant equivalent number of single threaded cores in the system.
+     * @return either return the number of cores there are in the CPU (if it is single threaded) or the equivalent
+     * number of single threaded cores in the system, using a ternary operator.
      *  e.g. Core i7 7700 has 4 cores, 8 threads, and so would have a performance equivalent of 5.2 single threaded cores.
      */
     private float hyperThreadBonus(){
@@ -43,7 +45,7 @@ public record Cpu(String cpuModel, int generation, int cores, int threads, int b
      * ageNegator() increases or decreases the performance bias of a CPU depending on its age and process node (how small
      * the CPUs transistors are). The smaller the process nodes and newer the CPU is, the higher performance bias, as well
      * as the latter.
-     * @return gives the output of the CPU age bias formula
+     * @return the output of the CPU age bias formula
      */
     float ageNegator(){
         //ToDo return a solution that returns a multiplier for the CPU's age and fabrication process
