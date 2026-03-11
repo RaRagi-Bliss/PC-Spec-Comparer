@@ -24,7 +24,7 @@ public record Cpu(String cpuModel, int generation, int cores, int threads, int b
      */
     public float totalScore(){
         //todo fine tune the combination of hyperThreadBonus and ageNegator
-        return hyperThreadBonus() * ageNegator();
+        return hyperThreadBonus() * ageNegator() * boostClockSpeed();
         //return 0;
     }
 
